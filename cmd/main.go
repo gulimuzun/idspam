@@ -1,9 +1,7 @@
 package main
 
-import(
-	"fmt"
-)
+import "idspam/internal/train"
 
 func main(){
-	
+	train.Test()
 }
