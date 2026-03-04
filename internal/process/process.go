@@ -4,6 +4,7 @@ import (
 	"idspam/internal/token"
 	"io/fs"
 	"os"
+	"fmt"
 	"path/filepath"
 )
 func ProcessDataToWordBag(root string) map[string]int{
@@ -29,7 +30,8 @@ func ProcessDataToWordBag(root string) map[string]int{
 		return nil
 	})
 	if err!=nil {
-		panic(err)
+		fmt.Fprintln(os.Stderr,"error:",err)
+		os.Exit(1)
 	}
 	return wordBag
 }
@@ -54,7 +56,8 @@ func CalcWordSum(root string) int {
 		return nil
 	})
 	if err!=nil {
-		panic(err)
+		fmt.Fprintln(os.Stderr,"error:",err)
+		os.Exit(1)
 	}
 	return sum
 }
@@ -73,7 +76,8 @@ func CalcTextSum(root string) int{
 		return nil
 	})
 	if err!=nil {
-		panic(err)
+		fmt.Fprintln(os.Stderr,"error:",err)
+		os.Exit(1)
 	}
 	return sum
 }
